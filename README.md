@@ -4,6 +4,8 @@ ROS 2 driver for the **MB-1R2T LiDAR** (Patched for firmware compatibility and `
 
 This repository is a modified and stabilized fork based on [g0mb4/mb_1r2t_ros2](https://github.com/g0mb4/mb_1r2t_ros2). It has been heavily refactored to resolve serial data dropouts, firmware packet parsing issues, and scan size mismatches.
 
+![MB-1R2T LiDAR](img/mb_1r2t%20v1.5.9.jpg)
+
 ---
 
 ## 🛠️ Key Bug Fixes in this Fork
@@ -71,6 +73,8 @@ Starts the driver and opens the pre-configured RViz2 GUI:
 ros2 launch mb_1r2t rviz.launch.py
 ```
 
+![RViz2 Visualization](img/rviz.png)
+
 ### 3. Run SLAM 2D Mapping (slam_toolbox)
 Runs the LiDAR driver, publishes static TFs (`odom` -> `base_link` -> `lidar`), and starts the `slam_toolbox` node for real-time room mapping:
 ```bash
@@ -91,6 +95,8 @@ ros2 launch rosbridge_server rosbridge_websocket_launch.xml
 3. In the 3D Panel:
    * Change **Custom Frame** to: **`map`** (press Enter).
    * Check the `/map` and `/laser_scan` topics in the list.
+
+![Foxglove Studio Visualization](img/foxglove.png)
 
 ### 5. Save the Generated Map
 Once mapping is complete, save your map:
